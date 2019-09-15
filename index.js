@@ -17,6 +17,12 @@ app.set('view engine', 'ejs');
 //setting path for views folder
 app.set('views', path.join(__dirname, 'views'));
 
+//middleware to connect controller and view
+app.use(express.urlencoded());
+
+//access assets i.e static files
+app.use(express.static('assets'));
+
 //route for homepage
 app.get('/', function(req, res){
 
@@ -31,7 +37,7 @@ app.get('/', function(req, res){
         //passing title and lists to view html i.e home.ejs
         return res.render('home', {
             title: "TODO App",
-            todo_list: lists
+            todo_list: tasks
         });
     });
 });

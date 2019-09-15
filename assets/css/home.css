@@ -1,0 +1,47 @@
+.heading {
+    text-align: center;
+    font-family: none;
+    opacity: .7; 
+}
+
+.col {
+    border: 1px solid gray;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    border-color: lightgray;
+}
+.col-md-6 {
+    border: 1px solid gray;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    border-color: lightgray;
+}
+
+
+h4{
+    padding-left: .6rem;
+}
+
+.btn1 {
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: xx-large;
+    cursor: pointer;
+  }
+
+  .btn2 {
+    background-color: Red;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: xx-large;
+    cursor: pointer;
+  } 
+
+  .btns{
+
+    margin-top: 60px;
+      text-align: center;
+
+  }
