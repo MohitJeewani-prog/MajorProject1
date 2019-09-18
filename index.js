@@ -42,7 +42,46 @@ app.get('/', function(req, res){
     });
 });
 
+//creating todo task
+app.post('/create-TODO', function(req, res){
 
+    dailyTask.create({
+        description: req.body.description,
+        category: req.body.category,
+        date: req.body.date
+    },function(err, newTodo){
+        if(err){
+            console.log('error in creating a contact');
+            return;
+        }
+
+        console.log('**********', newTodo);
+
+        return res.redirect('back');
+    });
+});
+
+app.post('/delete-todo', function(req, res){
+
+    console.log(req.body);
+    console.log(Object.keys(req.body));
+
+    //iterate over all the checkboxes selected
+    Object.keys(req.body).forEach(function(key){
+
+        console.log(key);
+        dailyTask.findByIdAndDelete(key, function(err, data){
+
+            if(err){
+                console.log('error in deleting');
+                return;
+            }
+        });
+
+        res.redirect('back');
+    });
+
+});
 
 //listen on port 8000
 app.listen(port, function(err){

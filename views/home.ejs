@@ -25,13 +25,13 @@
             <div class="form-row">
                 <div class="col">
                     <h4>Description</h4>
-                    <input style="border: hidden; transition: hidden" type="text" class="form-control" name="desc" placeholder="What do you need to do?">
+                    <input style="border: hidden; transition: hidden" type="text" class="form-control" name="description" placeholder="What do you need to do?">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <h4>Category</h4>
-                    <select style="border: hidden; transition: hidden" class="form-control">
+                    <select style="border: hidden; transition: hidden" class="form-control" name="category">
                     <option selected>Choose a category</option>
                     <option>Personal</option>
                     <option>Work</option>
@@ -41,13 +41,44 @@
                 </div>                
                 <div class="form-group col-md-6">
                     <h4>Date</h4>
-                    <input style="border: hidden; transition: hidden" type="date" class="form-control">
+                    <input style="border: hidden; transition: hidden" type="date" name="date" class="form-control">
                 </div>
             </div>
             <div class="btns">
-                <button class="btn1" style="background-color: blue"><i class="fa fa-plus"></i> Add</button>
-                <button class="btn2" style="background-color: red"><i class="fa fa-trash"></i> Delete</button>
+                <button type="submit" class="btn1" style="background-color: blue"><i class="fa fa-plus"></i> Add</button>
             </div>
+        </form>
+
+        <form action="/delete-todo" method="POST">
+            <button  class="btn2" style="background-color: red"><i class="fa fa-trash"></i> Delete</button>
+        
+
+        <!-- dynamic part i.e dynamic list -->
+        <div>
+            <ul>
+                <% for(let i of todo_list) { %>
+
+                    <div><p>_____________________________________________________________________________________________________________________________</p></div>
+
+                    <!-- content of dynamic list -->
+                    <li>
+                        <div class="row">
+                            <div class="col-sm-1" style="background-color:white;">
+                                <input type="checkbox" name="<%= i._id %>"aria-label="Checkbox for following text input">
+                            </div>
+                            <div class="col-sm-6" style="background-color:white;">
+                                <div class="row" style="background-color:white;"><%= i.description %></div>
+                                <div class="row" style="background-color:white;">
+                                    <i class="fa fa-calendar" aria-hidden="true"></i><%= i.date %>
+                                </div>
+                            </div>
+                            <div class="col-sm-1" style="background-color:white;"><%= i.category %></div>
+                        </div>
+                    </li>
+
+                <% } %>
+            </ul>
+        </div>
         </form>
 
         <!-- bootstrap javascript -->
