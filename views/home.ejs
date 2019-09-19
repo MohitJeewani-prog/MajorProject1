@@ -55,7 +55,7 @@
 
         <!-- dynamic part i.e dynamic list -->
         <div>
-            <ul>
+            <ul style="list-style: none">
                 <% for(let i of todo_list) { %>
 
                     <div><p>_____________________________________________________________________________________________________________________________</p></div>
@@ -63,16 +63,19 @@
                     <!-- content of dynamic list -->
                     <li>
                         <div class="row">
-                            <div class="col-sm-1" style="background-color:white;">
-                                <input type="checkbox" name="<%= i._id %>"aria-label="Checkbox for following text input">
-                            </div>
-                            <div class="col-sm-6" style="background-color:white;">
-                                <div class="row" style="background-color:white;"><%= i.description %></div>
-                                <div class="row" style="background-color:white;">
-                                    <i class="fa fa-calendar" aria-hidden="true"></i><%= i.date %>
+                            <input class="col-sm-1" type="checkbox" name="<%= i._id %>"aria-label="Checkbox for following text input">
+                            
+                            <label for="<%= i._id %>" class="col-sm-6">
+                                <div class="col-sm-6" style="background-color:white;">
+                                    <div class="row" style="background-color:white;"><%= i.description %></div>
+                                    <div class="row" style="background-color:white;">
+                                        <i class="fa fa-calendar" aria-hidden="true"></i><%= i.date %>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-1" style="background-color:white;"><%= i.category %></div>
+                            </label>
+                            
+                            
+                            <div class="button" style="background-color:white;"><%= i.category %></div>
                         </div>
                     </li>
 
